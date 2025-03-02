@@ -1,13 +1,13 @@
 import React from 'react';
 import HomePage from './pages/HomePage';
-
+import Dashboard from './components/Dashboard';
+import './index.css';
 
 function App() {
   return (
-    <div className="text-4xl font-bold text-green-500">
-      Tailwind is working! ✅
-    </div>
-    
+    <>
+    <Dashboard/>
+    </>
   );
 }
 

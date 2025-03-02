@@ -1,3 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.App{
+    width : 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.Sidebar {
+    padding-top: 1%;
+    height: 100%;
+    width: 250px;
+    background-color: blueviolet;
+    padding-bottom: 53%;
+}
+
+.SidebarList {
+    height: auto;
+    padding: 0;
+    width: 100%;
+}
+
+.SidebarList .row {
+    width : 100%;
+    height: 60px;
+    border: 0.5px solid black;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: rgb(54, 58, 61);
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.SidebarList .row:hover {
+    cursor: pointer;
+    background-color: azure;
+}
+
+.SidebarList .row #active {
+    background-color: aqua;
+}
+.row #icon {
+    flex:30%;
+    display: grid;
+    place-items: center;
+}
+
+.row #title{
+    flex:70%;
+}
