@@ -18,7 +18,7 @@ body {
     padding-top: 1%;
     height: 100%;
     width: 250px;
-    background-color: blueviolet;
+    background-color: lightblue;
     padding-bottom: 53%;
 }
 
@@ -44,7 +44,7 @@ body {
 
 .SidebarList .row:hover {
     cursor: pointer;
-    background-color: azure;
+    background-color: rgb(62, 197, 197);
 }
 
 .SidebarList .row #active {
@@ -58,4 +58,54 @@ body {
 
 .row #title{
     flex:70%;
+}
+
+.label {
+    flex: 30%;
+    display: grid;
+    font-size: larger;
+    color: white;
+    padding: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.input {
+    flex : 70%;
+    font-size: larger;
+    padding: 5px;
+    margin: 2px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.btn {
+    color: white;
+    background-color: teal;
+    border-radius: 5px;
+    font-size: larger;
+    display: block;
+    padding: 5px;
+    margin: 10px auto;
+}
+
+.messages {
+    display: flex;
+    justify-content: center;
+    font-size: small;
+}
+
+.error {
+    display: block;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
+    color:blueviolet;
+}
+
+.success {
+    display: block;
+    background-color: lightblue;
+    color:blueviolet;
+    width: fit-content;
+    height: 50px;
+    padding: 5px;
 }
