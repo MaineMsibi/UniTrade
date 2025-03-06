@@ -1,7 +1,6 @@
 package com.backend.service;
 
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 import org.springframework.security.core.GrantedAuthority;
@@ -28,13 +27,11 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .orElseThrow(() ->
                 new UsernameNotFoundException("User not found with this username:"+ usernameOrEmail));
 
-        Set<GrantedAuthority> authorities = user
-        .getRoles()
-        .stream()
-        .map((role) -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toSet());
+                Set<GrantedAuthority> authorities = Set.of(new SimpleGrantedAuthority(user.getUserType()));
+
         
     return new org.springframework.security.core.userdetails.User(
-        user.getEmail(),
+        user.getUsername(),
         user.getPassword(),
         authorities);
     }

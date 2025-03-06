@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.entity.Role;
 import com.backend.entity.User;
 import com.backend.payload.LoginDto;
 import com.backend.payload.SignUpDto;
-import com.backend.repository.RoleRepository;
 import com.backend.repository.UserRepository;
 
 @RestController
@@ -31,9 +29,6 @@ public class AuthController {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private RoleRepository roleRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -60,21 +55,25 @@ public class AuthController {
             return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
         }
 
+        // Validate user type
+        String userType = signUpDto.getUserType();
+        if (!"admin".equalsIgnoreCase(userType) && !"seller".equalsIgnoreCase(userType) && !"buyer".equalsIgnoreCase(userType)) {
+            return new ResponseEntity<>("Invalid user type! Must be one of 'admin', 'seller', or 'buyer'.", HttpStatus.BAD_REQUEST);
+        }
+
         User user = new User();
         user.setName(signUpDto.getName());
         user.setUsername(signUpDto.getUsername());
         user.setEmail(signUpDto.getEmail());
         user.setPassword(passwordEncoder.encode(signUpDto.getPassword()));
+        user.setUserType(userType);  // Set the validated userType
 
-        Role role = roleRepository.findByName("ROLE_ADMIN").orElse(null);
-        if (role == null) {
-            return new ResponseEntity<>("Role 'ROLE_ADMIN' not found!", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        user.setAboutInfo(null); // Blank or null
+        user.setCellNumber(null); // Blank or null
+        user.setProfilePic(null); // Blank or null
 
-        user.setRoles(Collections.singleton(role));
         userRepository.save(user);
 
         return new ResponseEntity<>("User registered successfully!", HttpStatus.CREATED);
     }
-
 }

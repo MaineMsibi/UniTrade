@@ -1,0 +1,10 @@
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\config\SecurityConfig.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\controller\AuthController.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\entity\Role.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\entity\User.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\payload\LoginDto.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\payload\SignUpDto.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\repository\RoleRepository.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\repository\UserRepository.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\service\CustomUserDetailsService.java
+C:\Users\Michael\Desktop\Backend\unitrade\src\main\java\com\backend\unitrade\UnitradeApplication.java

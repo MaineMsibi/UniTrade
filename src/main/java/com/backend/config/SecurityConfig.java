@@ -18,12 +18,13 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 @EnableWebSecurity
 public class SecurityConfig {
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable()) // Disable CSRF for APIs
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/signup", "/api/auth/signin").permitAll() // Public access
+                .requestMatchers("/api/auth/signup", "/api/auth/signin", "/users","users/{uni_num}").permitAll()  // Allow access to signup // Allow access to signin
                 .anyRequest().authenticated() // Authentication required for other requests
             )
             .exceptionHandling(exceptions -> exceptions
@@ -45,6 +46,7 @@ public class SecurityConfig {
 
         return new ProviderManager(authenticationProvider);
     }
+
 
     @Bean
     public static PasswordEncoder passwordEncoder() {
